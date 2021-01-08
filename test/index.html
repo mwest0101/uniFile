@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Web Links</title>
+	<link rel="STYLESHEET" href="css/default.css" type="text/css">
+	<script src="js/JSH/Components/Commons/JSH_Counter_Tabs.js"></script>
+	<script src="js/JSH/Functions/JSH_functions.js"></script>
+	<script src="js/JSH/Functions/JSH_strConstruct.js"></script>
+	<script src="js/JSH/Components/GDTable/JSH_GDTable_Interface.jjs"></script>
+	<script src="js/JSH/Components/GDTable/JSH_GDTable_Properties.ts"></script>
+	<script src="js/JSH/Functions/JSH_objectsDriver.js"></script>
+	<script src="js/JSH/Components/JSH_components.js"></script>	
+	<script src="js/JSH/Components/GDTable/JSH_GDTable_Properties.js"></script>
+	<script src="js/JSH/Components/GDTable/JSH_GDTable_Interface.ts"></script>
+	<script src="js/JSH/Components/GDTable/JSH_GDTable_Interface.js"></script>
+	<script src="js/JSH/Components/GDTable/HTML/JSH_GDTable_HTML.js"></script>
+	<script src="js/JSH/Components/GDTable/HTML/JSH_GDTable_HTML.ts"></script>
+	<script src="js/JSH/JSH.js"></script>
+	<script src="js/JSH/Components/GDTable/JSH_GDTable_Properties.jjs"></script>
+	
+	<script>
+		divC5= new JSH();
+		table=divC5.newGDTable("principal");		
+		table.addRow("test");
+		table.addCol("a","a");
+		table.addCol("b","b");
+		table.addCol("c","c").addTable("principal2").addRow().addCol("test1").addCol("test2").addCol("test3").addEnd().addEnd();
+		table.addEnd();
+		table.addEnd();
+		divC5.add(table);
+		
+
+		
+
+
+
+		
+		
+		
+		
+		JSH_Counter_Tabs.incTabs();
+		console.log("Tabs",JSH_Counter_Tabs.getContTab());
+	
+		// divC5.getAllObjToString();
+		console.log(divC5.getResulString());
+		// divC5.getResulString();
+	
+
+	</script>
+	<style id="miStyle"></style>
+	</head>
+	
+	<body>
+	 Prueba
+	<!--<div id="content"></div> 
+	<div id="content3"></div>-->
+	<div id="content4"></div>
+	<script>
+		divC5.setHtmlToTag("content4");
+		//styleD.setHtmlToTag("miStyle");
+	</script>
+	</body>
+</html>
+
+
+

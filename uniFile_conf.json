@@ -1,0 +1,40 @@
+{ 
+    
+  "main": "index.html",
+  "path": "D:\\pPython\\uniFile\\test", // comentario
+  "version": "1.0.0",
+  "order": "des", //test
+  "type": "JS_HTML",   
+  "so": "WIN",                                                      // Define of SO WIN o LIN
+  "debug": "false",
+  "JS_HTML": {
+    "detail": "Merge javascript files by call order in html",    
+    "endLine":{
+      "0":";",
+      "1":"\n"
+    },
+    "seek":{                                                            //String to search (number what the to be included
+      "1":{                                                             //Priority to search
+        "str":"<script src=\"{file}.js\"",                              // {file} is representation where the app wait found the filename and path           
+        "ext":"js",                                                //Extension to search in case that it doesnt exist in seek string
+        "chSpaces":"true",                                          // Sets if changes the spaces in the string to search ,called seek 
+        "caseSens":"true"                                          // Sets if it is case sensitive       
+      },
+      "2":{                                                             //Priority to search
+        "str":"<script src=\"{file}.jjs\"",                              // {file} is representation where the app wait found the filename and path           
+        "ext":"js",                                                //Extension to search in case that it doesnt exist in seek string
+        "chSpaces":"true",                                          // Sets if changes the spaces in the string to search ,called seek 
+        "caseSens":"false"                                          // Sets if it is case sensitive 
+        
+      },
+      "3":{                                                             //Priority to search
+        "str":"<script src=\"{file}.ts\"",                              // {file} is representation where the app wait found the filename and path           
+        "ext":"js",                                                //Extension to search in case that it doesnt exist in seek string
+        "chSpaces":"true",                                          // Sets if changes the spaces in the string to search ,called seek 
+        "caseSens":"false"                                          // Sets if it is case sensitive 
+        
+      }
+    }
+  }
+
+}
