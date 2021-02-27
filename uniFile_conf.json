@@ -1,7 +1,7 @@
 { 
     
   "main": "index.html",
-  "path": "D:\\pPython\\uniFile\\test", // comentario
+  "path": "D:\\pPython\\uniFile\\test", // ruta al proyecto y el archivo principal
   "version": "1.0.0",
   "order": "des", //test
   "type": "JS_HTML",   

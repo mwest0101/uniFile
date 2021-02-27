@@ -2,50 +2,51 @@ import commentjson
 import array
 from inc.app.lang.en_strings import *
 
-class ReadJson():  
-    
-    f=""
-    content=""
-    jsondecoded=""
-    result=""
+
+class ReadJson():
+
+    f = ""
+    content = ""
+    jsondecoded = ""
+    result = ""
 
     @classmethod
-    def openFile(self,pathAndFile):       
+    def openFile(self, pathAndFile):
         try:
             self.f = open(pathAndFile, "r")
             self.content = self.f.read()
             self.jsondecoded = commentjson.loads(self.content)
-            self.result=self.jsondecoded
+            self.result = self.jsondecoded
         except:
-            print('|||| '+CONST_NO_OPEN_FILE+' ['+pathAndFile+']  |||')            
-    
+            print('|||| '+CONST_NO_OPEN_FILE+' ['+pathAndFile+']  |||')
+
     @classmethod
-    def printAll(self):                           
-        print(self.jsondecoded)   
-    
+    def printAll(self):
+        print(self.jsondecoded)
+
     @classmethod
     def getRoot(self):
         return self.jsondecoded
-    
-    @classmethod
-    def reset(self):
-        self.result=self.jsondecoded
 
     @classmethod
-    def setElement(self,array):
-        self.result=array
-        
+    def reset(self):
+        self.result = self.jsondecoded
+
     @classmethod
-    def getElement(self,strElement):   
-        try:                                       
+    def setElement(self, array):
+        self.result = array
+
+    @classmethod
+    def getElement(self, strElement):
+        try:
             return self.result[strElement]
         except:
-            print('--> El indice "',strElement,'" ¡NO EXISTE!')            
+            print('--> El indice "', strElement, '" ¡NO EXISTE!')
             return 0
-    
+
     @classmethod
-    def getAndSet(self,strElement):
-        self.result=self.getElement(strElement)
+    def getAndSet(self, strElement):
+        self.result = self.getElement(strElement)
         return self.result
 
     @classmethod
@@ -55,15 +56,14 @@ class ReadJson():
                 print(data)
         else:
             Debug.print(CONST_RDJ_THERE_NO_VALUES_ARRAY)
-            
 
-    @classmethod    
-    def getIndex(self): 
-        values=[]       
+    @classmethod
+    def getIndex(self):
+        values = []
         if (self.result):
             for data in self.result:
                 values.append(data)
-            return values    
+            return values
         else:
             Debug.print(CONST_RDJ_THERE_NO_VALUES_ARRAY)
             return 0
@@ -77,12 +77,12 @@ class ReadJson():
             Debug.print(CONST_RDJ_THERE_NO_VALUES_ARRAY)
 
     @classmethod
-    def getValues(self):  
-        values=[]      
+    def getValues(self):
+        values = []
         if (self.result):
             for data in self.result:
                 values.append(self.result[data])
-            return values    
+            return values
         else:
             Debug.print(CONST_RDJ_THERE_NO_VALUES_ARRAY)
             return 0
@@ -93,12 +93,3 @@ class ReadJson():
             return self.result
         else:
             Debug.print(CONST_RDJ_THERE_NO_VALUES_ARRAY)
-        
-
-            
-
-
-
-
-
-

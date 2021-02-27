@@ -38,6 +38,7 @@ class SeekString():
     def setPos(cls,value):
         cls.posFound=value
         return cls.posFound
+        
     @classmethod
     def getFirstPos(cls):
         return cls.firstPos
@@ -82,7 +83,7 @@ class SeekString():
     
 
     @classmethod
-    def seekAndSetPosAndLen(cls,arrayStr,cont):
+    def seekAndSetPosAndLen(cls,arrayStr,cont,setPosActive):
         bandFound=True
         if (cont==(-1)):
             cls.lastPos=cls.find(arrayStr)            
@@ -97,29 +98,29 @@ class SeekString():
         
         if(cls.lastPos==(-1)):             
                bandFound=False
+               
+        if (setPosActive==True):
+            cls.setPos(cls.lastPos)
 
-        cls.setPos(cls.lastPos)
         return bandFound
 
-    # Return if is found all components of a array in a string by array order 
-    # return [boolean, firstPosFound,lengthString,lastPosFound,lenghtString]
+
     @classmethod  
-    def seekArrayOfStrs(cls,arrayStr):
+    def seekArrayOfStrs(cls,arrayStr,setPosActive):
         bandFound=True
-        # bandFoundOne=False
         cont=0
         cls.resetPosAndLen()
         if (type(arrayStr) is str):
             bandFound=cls.seekAndSetPosAndLen(arrayStr,(-1))            
         else:
             while (cont<len(arrayStr) and bandFound ):
-                bandFound=cls.seekAndSetPosAndLen(arrayStr,cont)                           
+                bandFound=cls.seekAndSetPosAndLen(arrayStr,cont,setPosActive)                           
                 cont=cont+1         
         return [bandFound,cls.firstPos,cls.firstStrLen,cls.lastPos,cls.lastStrLen]
 
 
     @classmethod  
-    def seekArrayOfStrsLestPos(cls,arrayStr):
+    def seekArrayOfStrsLessPos(cls,arrayStr):
         bandFound=False
         
         cont=0
@@ -136,13 +137,18 @@ class SeekString():
             while (cont<len(arrayStr)):
                 cls.lastPos=cls.find(arrayStr[cont])            
                 cls.lastStrLen=len(arrayStr[cont])                
-                if((cls.firstPos==0) or (cls.lastPos<cls.firstPos)):
+                if((cls.firstPos==0) or (cls.lastPos<cls.firstPos)):                  
+                    temFirstPos=cls.firstPos
+                    temFirstStrLen=cls.firstStrLen
                     cls.firstPos=cls.lastPos
-                    cls.firstStrLen=cls.lastStrLen                              
+                    cls.firstStrLen=cls.lastStrLen
+                    cls.lastPos=temFirstPos
+                    cls.lastStrLen=temFirstStrLen
                 if(cls.lastPos!=(-1)):
                     bandFound=True                                  
                 cont=cont+1
 
+        # cls.setPos(cls.firstPos)
         return [bandFound,cls.firstPos,cls.firstStrLen,cls.lastPos,cls.lastStrLen]
 
 
